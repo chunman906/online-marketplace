@@ -1,11 +1,18 @@
 class Checkout
   def initialize(promotional_rules)
-    @items = Hash.new(0)
+    @items = []
+    @next_productcode = 1
     @promotional_rules = promotional_rules
   end
 
   def scan(item)
-    @items[item.class] += 1
+    item.productcode = @next_productcode
+    @next_productcode += 1
+    @items << item
+  end
+
+  def all
+    @items
   end
 
   def total
