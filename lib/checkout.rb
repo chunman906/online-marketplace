@@ -1,18 +1,13 @@
+require_relative './models/item'
+
 class Checkout
   def initialize(promotional_rules)
-    @items = []
-    @next_productcode = 1
+    @basket = []
     @promotional_rules = promotional_rules
   end
 
   def scan(item)
-    item.productcode = @next_productcode
-    @next_productcode += 1
-    @items << item
-  end
 
-  def all
-    @items
   end
 
   def total

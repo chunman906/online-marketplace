@@ -1,4 +1,7 @@
 class Item
+  attr_reader :name, :price
+  attr_accessor :productcode
+
   def initialise(attributes = {})
     @productcode = attributes[:productcode]
     @name = attributes[:name]
