@@ -1,11 +1,11 @@
 require_relative './models/item'
 require_relative './checkout'
 
-class PromotionalRules
-  def total(@items)
+class PromotionalRule
+  def total(items)
     current_total = 0
 
-    @items.each do |item, quantity|
+    items.each do |item, quantity|
       current_total += item_pricing(item, quantity)
     end
 
