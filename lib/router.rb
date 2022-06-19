@@ -21,10 +21,11 @@ class Router
   def display_tasks
     puts ""
     puts "What do you wanna do now?"
-    puts "1 - Scan item"
-    puts "2 - List all the items"
-    puts "3 - Check out"
-    puts "4 - Stop and exit the program"
+    puts "1 - List all the shopping items"
+    puts "2 - Scan item"
+    puts "3 - List the items in basket"
+    puts "4 - Check out"
+    puts "5 - Stop and exit the program"
   end
 
   def stop
@@ -33,12 +34,13 @@ class Router
 
   def route_action(action)
     case action
-    when 1 then puts @checkout.scan
-    when 2 then puts @checkout.list
-    when 3 then puts @checkout.total
-    when 4 then stop
+    when 1 then puts @checkout.list
+    when 2 then puts @checkout.scan
+    when 3 then puts @checkout.basket
+    when 4 then puts @checkout.total
+    when 5 then stop
     else
-      puts "Please press 1, 2, 3, or 4"
+      puts "Please press 1, 2, 3, 4, or 5"
     end
   end
 end
