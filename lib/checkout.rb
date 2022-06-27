@@ -1,4 +1,5 @@
 require_relative './models/item'
+require_relative './models/order'
 require_relative './view'
 
 class Checkout
@@ -7,15 +8,14 @@ class Checkout
     @promotional_rule = promotional_rule
     @order_repository = order_repository
     @view = View.new
-    @sum = 0
   end
 
   def scan(item)
     @items.map do |i|
       if i[:name] == item
-        @sum += i[:price]
+        @order << item
       else
-        @sume += 0
+        @view.error
       end
     end
   end
