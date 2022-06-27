@@ -10,14 +10,20 @@ class Checkout
     @view = View.new
   end
 
-  def scan(item)
-    @items.map do |i|
-      if i[:name] == item
+  def scan(productcode)
+    @item_repository.all.each do |item|
+      if item[:productcode].to_i == productcode.to_i
         @order << item
       else
         @view.error
       end
     end
+  end
+
+  def add
+    display_items
+    productcode = @view.ask_user_for
+    scan(productcode)
   end
 
   def basket
@@ -41,6 +47,6 @@ class Checkout
 
   def display_orders
     orders = @order_repository.all
-    @view.display(orders)
+    @view.display_order(orders)
   end
 end

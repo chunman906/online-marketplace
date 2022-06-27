@@ -35,7 +35,7 @@ class Router
   def route_action(action)
     case action
     when 1 then puts @checkout.list
-    when 2 then puts @checkout.scan
+    when 2 then puts @checkout.add
     when 3 then puts @checkout.basket
     when 4 then puts @checkout.total
     when 5 then stop
