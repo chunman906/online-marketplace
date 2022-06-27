@@ -10,4 +10,8 @@ class OrderRepository
     order.id = @next_id
     @next_productcode += 1
   end
+
+  def all
+    @order
+  end
 end
